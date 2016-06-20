@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conqat-architecture xmlns="http://conqat.cs.tum.edu/ns/architecture" policy="deny">
+   <component dim="120,40" name="tsv" pos="811,348">
+      <code-mapping regex="src/main/java/com/univocity/parsers/tsv/.*" type="include"/>
+   </component>
+   <component dim="120,40" name="fixed" pos="761,198">
+      <code-mapping regex="src/main/java/com/univocity/parsers/fixed/.*" type="include"/>
+   </component>
+   <component dim="120,40" name="csv" pos="607,75">
+      <code-mapping regex="src/main/java/com/univocity/parsers/csv/.*" type="include"/>
+   </component>
+   <component dim="120,40" name="conversions" pos="240,350">
+      <code-mapping regex="src/main/java/com/univocity/parsers/conversions/.*" type="include"/>
+   </component>
+   <component dim="120,40" name="common" pos="490,250">
+      <code-mapping regex="src/main/java/com/univocity/parsers/common/.*" type="include"/>
+   </component>
+   <component dim="120,40" name="annotations" pos="210,90">
+      <code-mapping regex="src/main/java/com/univocity/parsers/annotations/.*" type="include"/>
+   </component>
+   <allow source="csv" target="common"/>
+   <allow source="fixed" target="common"/>
+   <allow source="tsv" target="common"/>
+   <allow source="common" target="annotations"/>
+   <allow source="common" target="conversions"/>
+   <tolerate source="conversions" target="annotations"/>
+   <tolerate source="annotations" target="conversions"/>
+   <deny source="annotations" target="common"/>
+   <deny source="conversions" target="common"/>
+</conqat-architecture>
