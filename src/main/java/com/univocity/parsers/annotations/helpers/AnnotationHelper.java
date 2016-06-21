@@ -15,17 +15,51 @@
  ******************************************************************************/
 package com.univocity.parsers.annotations.helpers;
 
-import com.univocity.parsers.annotations.*;
-import com.univocity.parsers.annotations.Format;
-import com.univocity.parsers.common.*;
-import com.univocity.parsers.common.beans.*;
-import com.univocity.parsers.conversions.*;
-
 import java.lang.annotation.Annotation;
-import java.lang.reflect.*;
-import java.math.*;
-import java.text.*;
-import java.util.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.text.DateFormatSymbols;
+import java.text.DecimalFormatSymbols;
+import java.text.NumberFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Currency;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Set;
+import java.util.TimeZone;
+
+import com.univocity.parsers.annotations.BooleanString;
+import com.univocity.parsers.annotations.Convert;
+import com.univocity.parsers.annotations.EnumOptions;
+import com.univocity.parsers.annotations.Format;
+import com.univocity.parsers.annotations.Headers;
+import com.univocity.parsers.annotations.LowerCase;
+import com.univocity.parsers.annotations.NullString;
+import com.univocity.parsers.annotations.Parsed;
+import com.univocity.parsers.annotations.Replace;
+import com.univocity.parsers.annotations.Trim;
+import com.univocity.parsers.annotations.UpperCase;
+import com.univocity.parsers.exceptions.DataProcessingException;
+import com.univocity.parsers.beans.BeanHelper;
+import com.univocity.parsers.beans.PropertyWrapper;
+import com.univocity.parsers.conversions.Conversion;
+import com.univocity.parsers.conversions.Conversions;
+import com.univocity.parsers.conversions.EnumConversion;
+import com.univocity.parsers.conversions.FormattedConversion;
+import com.univocity.parsers.conversions.NumericConversion;
+import com.univocity.parsers.conversions.ObjectConversion;
 
 /**
  * Helper class to process fields annotated with {@link Parsed}
@@ -499,7 +533,7 @@ public class AnnotationHelper {
 			}
 			if (i != col) {
 				if (i >= out.size()) {
-					return ArgumentUtils.EMPTY_STRING_ARRAY;  // index goes beyond list of header names, can't derive.
+					return new String[0];  // index goes beyond list of header names, can't derive.
 				}
 				Collections.swap(out, i, col);
 			}

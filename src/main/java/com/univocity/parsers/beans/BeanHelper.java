@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.univocity.parsers.common.beans;
+package com.univocity.parsers.beans;
 
 import java.lang.ref.*;
 import java.lang.reflect.*;

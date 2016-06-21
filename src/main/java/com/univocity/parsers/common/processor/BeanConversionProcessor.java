@@ -9,7 +9,7 @@ package com.univocity.parsers.common.processor;
 import com.univocity.parsers.annotations.*;
 import com.univocity.parsers.annotations.helpers.*;
 import com.univocity.parsers.common.*;
-import com.univocity.parsers.common.beans.*;
+import com.univocity.parsers.beans.*;
 import com.univocity.parsers.conversions.*;
 
 import java.lang.annotation.*;
