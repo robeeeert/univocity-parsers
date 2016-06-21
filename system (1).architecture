@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<conqat-architecture xmlns="http://conqat.cs.tum.edu/ns/architecture" policy="deny" file-based="false" scope-include="" scope-exclude="">
+  <component name="annotations" dim="120,40" pos="191,161">
+    <code-mapping type="include" regex="com\.univocity\.parsers\.annotations\..*" />
+  </component>
+  <component name="common" dim="120,40" pos="431,301">
+    <code-mapping type="include" regex="com\.univocity\.parsers\.common\..*" />
+  </component>
+  <component name="conversions" dim="120,40" pos="681,151">
+    <code-mapping type="include" regex="com\.univocity\.parsers\.conversions\..*" />
+  </component>
+  <component name="csv" dim="120,40" pos="711,481">
+    <code-mapping type="include" regex="com\.univocity\.parsers\.csv\..*" />
+  </component>
+  <component name="fixed" dim="120,40" pos="371,451">
+    <code-mapping type="include" regex="com\.univocity\.parsers\.fixed\..*" />
+  </component>
+  <component name="tsv" dim="120,40" pos="161,431">
+    <code-mapping type="include" regex="com\.univocity\.parsers\.tsv\..*" />
+  </component>
+  <tolerate source="annotations" target="conversions" />
+  <allow source="common" target="annotations" />
+  <allow source="common" target="conversions" />
+  <tolerate source="conversions" target="annotations" />
+  <deny source="conversions" target="common" />
+  <allow source="csv" target="common" />
+  <allow source="fixed" target="common" />
+  <allow source="tsv" target="common" />
+</conqat-architecture>
